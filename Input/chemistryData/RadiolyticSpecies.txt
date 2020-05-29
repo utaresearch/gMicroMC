@@ -1,0 +1,11 @@
+Number of radiolytic species considered in this package:
+7
+index  Species   Diffusion Coefficients(10^9 nm.nm/s)    Radii(nm)
+0 e- 4.9 0.164
+1 .OH 2.8 0.130 
+2 .H 7.0 0.205
+3 H3O+ 9.0 0.232
+4 H2 4.8 0.173
+5 OH- 5.0 0.173
+6 H2O2 2.3 0.115
+

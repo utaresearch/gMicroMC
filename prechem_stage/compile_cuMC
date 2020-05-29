@@ -1,0 +1,1 @@
+nvcc main.cu -arch=sm_35 -lcudadevrt -o prechem

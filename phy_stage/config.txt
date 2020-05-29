@@ -1,0 +1,8 @@
+# GPU Device No.
+0
+#Cutoff energy (eV)
+7.5
+#Phase space file name : incident particle position (x, y, z : cm), direction & energy (eV)
+./source.txt
+#Future use (idle)
+0

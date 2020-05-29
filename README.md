@@ -45,6 +45,7 @@ Caution: May need to change MAXNUMPAR in the “microMC_chem.h” file to make i
 Parameters for DNA damage analysis are listed in microMC_chem.h too. Usually the default one is enough to have a comparable result. But it may need to be changed.  
 Output fot the chemical stage is inside the ./Results folder. Change the output style in runMicroMC.cu.
 ## How to run the program
+Because og the limit of file size in Github, one data file is compressed. PLease unzip the zip file in ./chem_stage/table to avoid possible errors.  
 Use “./compile_cuMC” to compile each part of the program. May need “chmod + x ./compile_cuMC” to make it executable.  
 Part I: use “./microMC config.txt” to run the program.  
 Part II: use “./prechem 0” to make the program running on GPU 0.  

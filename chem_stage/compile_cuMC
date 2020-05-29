@@ -1,0 +1,1 @@
+nvcc -g main.cu -o chem -lcusparse

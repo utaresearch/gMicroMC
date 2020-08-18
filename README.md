@@ -15,7 +15,7 @@ Program has been tested in Nvidia Quadro P400, Nvidia Titan Xp and Nvidia V100 G
 Ubuntu 16.04 and 18.04 have been tested. CUDA versions of 9.0, 9.2, 10.0, 10.2 have been tested.
 
 ## Code structure
-The code is composed of the following three sequential parts. The users can run them separately.
+The code is composed of the following three sequential parts. The users can run them separately. Notice that the running of physicochemcial stage and chemical stage needs to read data from previous stage, namely physics stage and physicochemcial stage, respectively. The user may give their own designed data according to the data format needed by those two programs.
 
 ### Part I --“phy_stage” for the electron physical transport
 Input files: simulation configuration file [phy_stage/config.txt](./phy_stage/config.txt), and source configuration file [phy_stage/source.txt](./phy_stage/source.txt).  
@@ -58,16 +58,18 @@ Use `./compile_cuMC` to compile each part of the program. May need `chmod + x ./
 
 ```bash
 # part I
-# run the program
+# Inside the folder ./phy_stage run the program
 ./phy_stage/microMC config.txt
 
 # Part II
+# Inside the folder ./prechem_stage run the program
 # make the program running on GPU 0
 ./prechem_stage/prechem 0
 
 # Part III
-# copy the [phy_stage/outputtotalphy.dat](./phy_stage/output/outputtotalphy.dat) file into the [chem_stage/Results](./chem_stage/Results) 
-cp ./phy_stage/output/outputtotalphy.dat ./chem_stage/Results
+# Inside the folder ./chem_stage run the program
+# copy the [phy_stage/output/totalphy.dat](./phy_stage/output/totalphy.dat) file into the [chem_stage/Results](./chem_stage/Results) 
+cp ./phy_stage/output/totalphy.dat ./chem_stage/Results in case that the calculation of DNA damage is needed
 
 # two scenarios
 # 1. run the program on GPU 0, with chemical stage ending at 1000 ps, and w/o DNA damage analysis starting.

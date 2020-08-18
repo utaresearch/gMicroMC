@@ -1180,6 +1180,7 @@ int main(int argc, char *argv[])
 #if QSORT==3	
     qsort(h_container,where_all,sizeof(data),cmpcontainer);
 #endif
+	system("[ ! -d ./output ] && mkdir ./output"); // check existence of the folder 
     float x,y,z,r2,e;
 	//for bin output test 6th Oct
     float deposit_e = 0.0,total_e=0.0,ecutoff=0;
@@ -1192,7 +1193,7 @@ int main(int argc, char *argv[])
 #if REPORT_FILE == 1   
 	for (long long i=0; i<where_all; i++)
 	{
-		x = 1e7*h_container[i].x;
+		x = 1e7*h_container[i].x; // cm to nm
         y = 1e7*h_container[i].y;
         z = 1e7*h_container[i].z;
         r2 = x*x+y*y+z*z;

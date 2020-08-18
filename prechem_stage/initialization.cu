@@ -38,7 +38,7 @@ ParticleData_prechem::~ParticleData_prechem()
    free(wiid_elec);
  }
 
-void ParticleData_prechem::readInitialParticles_GEANT4(string fname) // load the initial particles obtained from geant4-DNA for prechemical stage simulation
+void ParticleData_prechem::readInitialParticles_GEANT4() // load the initial particles obtained from geant4-DNA for prechemical stage simulation
 {
 /*	
 	FILE *fp = fopen(fname.c_str(), "r");

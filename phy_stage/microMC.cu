@@ -970,7 +970,8 @@ int main(int argc, char *argv[])
         cudaCreateTextureObject(&texObj_ieeCSTable   , &resD_ieeCSTable,  &texDesc, NULL);
         cudaCreateTextureObject(&texObj_elastDCSTable, &resD_elastDCSTable, &texDesc, NULL);
 
-	int run = 0;
+    int run = 0;
+    system("[ ! -d ./output ] && mkdir ./output"); // check existence of the folder
 	/**********************************************/
     /****   < RANDOM NUMBER INITIALIZATION >   ****/
 	/**********************************************/
@@ -1179,8 +1180,7 @@ int main(int argc, char *argv[])
 
 #if QSORT==3	
     qsort(h_container,where_all,sizeof(data),cmpcontainer);
-#endif
-	system("[ ! -d ./output ] && mkdir ./output"); // check existence of the folder 
+#endif 
     float x,y,z,r2,e;
 	//for bin output test 6th Oct
     float deposit_e = 0.0,total_e=0.0,ecutoff=0;

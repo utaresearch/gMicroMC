@@ -1,6 +1,6 @@
 # gMicroMC
 ***
-Revised on Apr. 9, 2020 by Youfang Lai.  
+This is the newest version of gMicroMC revised on Apr. 9, 2020 by Youfang Lai. It supports the simulation of physics stage from electron source and subsequent physicochemical and chemical stage for water radiolysis and radicals' reactions. Support for oxygen in chemcial stage was done and is waiting for validation. Support for proton source and concurrent transportation for DNA and radicals are being developed and validated. Redundant parts of the codes should be removed in the next version, which could help suppress the warning in compiling process. Unified data format for input and output in all three stages is expected to appear in the next verison as well.
 Corresponding email: xun.jia@utsouthwestern.edu, yujie.chi@uta.edu  
 The details of the simulation package can be referred to 
 * [1](https://aapm.onlinelibrary.wiley.com/action/showCitFormats?doi=10.1002%2Fmp.14037) Tsai, Min‐Yu, Zhen Tian, Nan Qin, Congchong Yan, Youfang Lai, Shih‐Hao Hung, Yujie Chi, and Xun Jia. 
@@ -12,7 +12,8 @@ Physics in Medicine & Biology 62, 8:3081 (2017).
 ## Hardware and software requirements
 A GPU that supports CUDA should be installed previously.
 Program has been tested in Nvidia Quadro P400, Nvidia Titan Xp and Nvidia V100 GPU cards.
-Ubuntu 16.04 and 18.04 have been tested. CUDA versions of 9.0, 9.2, 10.0, 10.2 have been tested.
+Ubuntu 16.04 and 18.04 have been tested. 
+CUDA versions of 9.0, 9.2, 10.0, 10.2 have been tested.
 
 ## Code structure
 The code is composed of the following three sequential parts. The users can run them separately. Notice that the running of physicochemcial stage and chemical stage needs to read data from previous stage, namely physics stage and physicochemcial stage, respectively. The user may give their own designed data according to the data format needed by those two programs.

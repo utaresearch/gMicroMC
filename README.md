@@ -58,25 +58,25 @@ Use `./compile_cuMC` to compile each part of the program. May need `chmod + x ./
 
 ```bash
 # part I
-# Inside the folder ./phy_stage run the program
-./phy_stage/microMC config.txt
+# Notice, Inside the folder ./phy_stage run the program
+microMC config.txt
 
 # Part II
-# Inside the folder ./prechem_stage run the program
+# Notice, Inside the folder ./prechem_stage run the program
 # make the program running on GPU 0
-./prechem_stage/prechem 0
+prechem 0
 
 # Part III
-# Inside the folder ./chem_stage run the program
+# Notice, Inside the folder ./chem_stage run the program
 # copy the [phy_stage/output/totalphy.dat](./phy_stage/output/totalphy.dat) file into the [chem_stage/Results](./chem_stage/Results) 
 cp ./phy_stage/output/totalphy.dat ./chem_stage/Results in case that the calculation of DNA damage is needed
 
 # two scenarios
 # 1. run the program on GPU 0, with chemical stage ending at 1000 ps, and w/o DNA damage analysis starting.
-./chem_stage/chem 0 1000 0
+chem 0 1000 0
 
 # 2. run the program on GPU 0, with chemical stage ending at 1000 ps and w/ DNA damage analysis starting
-./chem_stage/chem 0 1000 1
+chem 0 1000 1
 ```
 
 To make the logic of the simulation smooth, a [main.c](./main.c) file outside the three folders is created. After defining parameters in the “source.txt” and the “config.txt” files, just use `gcc main.c -o gMicroMC` for the compilation and use `./gMicroMC` for the execution of the entire three parts.

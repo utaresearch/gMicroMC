@@ -53,7 +53,7 @@ public:
 	ParticleData_prechem();
 	~ParticleData_prechem();
 	
-    void readInitialParticles_GEANT4(string fname); // loading the initial particles for prechemical stage (geant4 simulation result)
+    void readInitialParticles_GEANT4(); // loading the initial particles for prechemical stage (geant4 simulation result)
 	
 public:
 	int num_elec; //number of solvated electrons

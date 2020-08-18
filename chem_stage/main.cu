@@ -47,12 +47,12 @@ int main(int argc, char* argv[])
 	reactType1.initReaction(chemData, "./Input/chemistryData/Type1");
 
 	ParticleData parData;
-	parData.readInitialParticles_GEANT4("../prechem_stage/output_afterremove.bin");
+	parData.readInitialParticles_GEANT4("../prechem_stage/output_afterremove.bin"); // results file from physicochemcial stage
 
 	initGPUVariables(&chemData, &reactType1, &parData);
 	
 	end_time_ini = clock();
-	
+	system("[ ! -d ./Results ] && mkdir ./Results"); // check existence of the folder
 	runMicroMC(&chemData, &reactType1, &parData, process_time, flagDNA);
 
 	end_time_sim = clock();

@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 	cudaSetDevice(deviceNo);
 		
 	ParticleData_prechem parData_pc;
-	parData_pc.readInitialParticles_GEANT4("../phy_stage/output/result.txt");
+	parData_pc.readInitialParticles_GEANT4();
 	
 	Branch_water_prechem braInfo_pc;
 	braInfo_pc.readBranchInfo("./Input/branchInfo_prechem_org.txt");

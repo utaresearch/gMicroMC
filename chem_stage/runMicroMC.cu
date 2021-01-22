@@ -406,6 +406,29 @@ void runMicroMC(ChemistrySpec *chemistrySpec, ReactionType *reactType, ParticleD
 
 		numCurPar = zip_new_end - zip_begin;		
 		
+		/*if(mintd>0)
+		{
+		    cudaMemcpy(h_posx,d_posx,sizeof(float)*numCurPar, cudaMemcpyDeviceToHost);
+		    cudaMemcpy(h_posy,d_posy,sizeof(float)*numCurPar, cudaMemcpyDeviceToHost);
+		    cudaMemcpy(h_posz,d_posz,sizeof(float)*numCurPar, cudaMemcpyDeviceToHost);
+		    cudaMemcpy(h_ptype,d_ptype,sizeof(unsigned char)*numCurPar, cudaMemcpyDeviceToHost);
+		    int numOfSpec[22]={0};
+		    float r2=0;
+		    for(int tmptmp=0;tmptmp<numCurPar;tmptmp++)
+		    {
+		    	numOfSpec[h_ptype[tmptmp]]++;
+		    	r2=h_posx[tmptmp]*h_posx[tmptmp]+h_posy[tmptmp]*h_posy[tmptmp]+h_posz[tmptmp]*h_posz[tmptmp];
+		    	if(r2<5500*5500)
+		    		numOfSpec[11+h_ptype[tmptmp]]++;
+		    }
+		    FILE* fpspecies=fopen("./Results/numSpec.dat","ab");
+		    fwrite(&numOfSpec[0],sizeof(int),22,fpspecies);
+		    fclose(fpspecies);
+		    fpspecies=fopen("./Results/time.dat","ab");
+		    fwrite(&curTime,sizeof(float),1,fpspecies);
+		    fclose(fpspecies);
+		}//*/
+		
 		idx_iter++;
 		if(idx_iter%100 == 0) printf("idx_iter = %d curTime = %f # of radicals = %d\n", idx_iter, curTime, numCurPar);			
     }

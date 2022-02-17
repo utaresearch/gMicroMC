@@ -1,0 +1,33 @@
+#number of branch types
+6
+# all the branch types: branch type, number of products, species type of products (species type: 0 e_{aq}-, 1 OH., 2 H., 3 H3O+, 4 H2, 5 OH-)
+0 2 3 1 
+1 2 1 2
+2 0
+3 3 3 1 0
+4 3 4 1 1 
+5 3 4 1 5 
+# for each branch type: rms of hole hopping (nm), rms of placement (nm), placement coefficient for each product
+# (according to table 3 in M.A. Bernal, physica Medica, 31(2015):861-874)
+0 2.0 0.8 0.0 1.0 0.0 0.0 0.0 0.0 0.0 
+1 0.0 2.4 0.0 -0.05555556 0.0 0.94444444 0.0 0.0 0.0
+2 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+3 2.0 0.8 0.0 1.0 0.0 0.0 0.0 0.0 0.0
+4 0.0 0.8 1.1 -0.11111111 0.0 0.88888889 0.5 0.88888889 -0.5
+5 0.0 0.8 1.1 -0.11111111 0.0 0.88888889 0.5 0.88888889 -0.5  
+# the branches for the recombined electrons(number of branches, branch type and probability of each branch)(modified from 3 0.55 4 0.15 2 0.3 to 1 0.55 4 0.15 2 0.3 based on Geant4-DNA)
+3 1 0.55 4 0.15 2 0.3
+# the branches for the ionized water molecules(number of branches, branch type and probability of each branch)
+1 0 1.0
+# the branches for the A1B1 excited water molecules(number of branches, branch type and probability of each branch)
+2 1 0.65 2 0.35
+# the branches for the B1A1 excited water molecules(number of branches, branch type and probability of each branch)
+3 3 0.55 4 0.15 2 0.3
+# the branches for the excited water molecules with rydberg and diffusion bands(number of branches, branch type and probability of each branch)
+2 3 0.5 2 0.5
+# the branches for dissociative water molecules(number of branches, branch type and probability of each branch)
+1 5 1.0
+
+
+
+

@@ -1,0 +1,1 @@
+nvcc  main.cpp ./src/* -o gMicroMC -I ./inc/ -rdc=true -g -G -w 

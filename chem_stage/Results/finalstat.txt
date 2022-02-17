@@ -1,4 +1,0 @@
-SSBd SSbi SSbm DSBd DSBi DSBm DSBh
-1 1 0 0 0 0 0 
-SSB 2xSSB SSB+ 2SSB DSB DSB+ DSB++
-0 2 0 0 0 0 0 

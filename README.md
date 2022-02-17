@@ -1,21 +1,21 @@
 # gMicroMC_v2.0
 Updated by Youfang Lai. Email: youfanglai@gmail.com  
-Cross-checked and finalized by Yujie Chi. Email: yujie.chi@uta.edu
+Cross-checked and finalized by Yujie Chi. Email: yujie.chi@uta.edu  
 Correpondance: xun.jia@utsouthwestern.edu and yujie.chi@uta.edu  
 
-Every researcher is welcomed to modify and distribute this package with no commercial purpose. The authors claim no responsibility for the results produced by users.
+Researchers are welcomed to modify and distribute this package for non-commercial purpose. The authors claim no responsibility for the results produced by users.
 For credit recognition, please kindly cite
-* initial development for electron  
+* Initial development  
 Tsai, M. Y., Tian, Z., Qin, N., Yan, C., Lai, Y., Hung, S. H., ... & Jia, X. (2020). A new open‐source GPU‐based microscopic Monte Carlo simulation tool for the calculations of DNA damages caused by ionizing radiation‐‐‐Part I: Core algorithm and validation. Medical physics, 47(4), 1958-1970.
-* oxygen module  
+* Oxygen module  
 Lai, Y., Jia, X., & Chi, Y. (2021). Modeling the effect of oxygen on the chemical stage of water radiolysis using GPU-based microscopic Monte Carlo simulations, with an application in FLASH radiotherapy. Physics in Medicine & Biology, 66(2), 025004.
-* proton and concurrent method  
+* Proton, heavy ions and concurrent transport of DNA  
 Lai, Y., Jia, X., & Chi, Y. (2021). Recent Developments on gMicroMC: Transport Simulations of Proton and Heavy Ions and Concurrent Transport of Radicals and DNA. International journal of molecular sciences, 22(12), 6615.
 
 # Updated features
 May 3rd, 2021  
-1. updated gMicroMC package with more comments and smoother control of the output by using class
-2. all fuctions were divided into two types, kernel functions executed by GPU in \*.cu files and typical \*.cpp files
+1. Updated gMicroMC package with more comments and smoother control of the output by using class
+2. All fuctions were divided into two types, kernel functions executed by GPU in \*.cu files and typical \*.cpp files
 
 # Overview about the package
 To make full use of this package and get meaningful results, users are suggested to well understand the general picture of microscopic MC simulation and the function of gMicroMC.
@@ -32,7 +32,7 @@ Interested users are encouraged to read the following papers and the references 
 4. Lai, Y., Jia, X., & Chi, Y. (2021). Modeling the effect of oxygen on the chemical stage of water radiolysis using GPU-based microscopic Monte Carlo simulations, with an application in FLASH radiotherapy. Physics in Medicine & Biology, 66(2), 025004.
 5. Lai, Y., Jia, X., & Chi, Y. (2021). Recent Developments on gMicroMC: Transport Simulations of Proton and Heavy Ions and Concurrent Transport of Radicals and DNA. International journal of molecular sciences, 22(12), 6615.
 
-## 2）what the package can provide
+## 2）What the package can provide
 The advantage of using gMicroMC is to make a full use of GPU to accelerate the simulation process. It is very important as improving computational efficiency could enable more realistic yet computation-requiring simulations, for example, treating oxygen explicitly as molecules in the early age of chemical stage rather than viewing them as continuum background. The package does not introduce new physical or chemical interpretation. Hence, what gMicroMC can provide is basically the same as other CPU packages:
 - Deposited energy, positions, track index etc. in the physics stage. (Check Data structure)
 - Initial types of radicals and their distributions. (Check output from prechemical stage)
@@ -55,7 +55,7 @@ The code is structured as
 &nbsp;&nbsp;&nbsp;&nbsp;./output/ --> output directory   
 ## Compile
 nvcc main.cpp ./src/* -o gMicroMC -I ./inc -rdc=true  
-or 
+or  
 make 
 
 ## Run the program

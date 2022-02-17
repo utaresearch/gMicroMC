@@ -1,8 +1,96 @@
-# GPU Device No.
-0
-#Cutoff energy (eV)
-7.5
-#Phase space file name : incident particle position (x, y, z : cm), direction & energy (eV)
-../source.txt
-#Future use (idle)
-0
+{
+//global setting
+	"Device": 0, // device to be used
+	"startStage": 0, // 0 for physics stage, 1 for prechemical stage, 2 for chemical stage, 3 for DNA searching
+	"outputDir": "./output/",
+	"NPART": 262144,
+	"NRAND": 262144,
+	"NTHREAD_PER_BLOCK": 256,
+	"verbose":3,
+	"targetEneDep": 2.5e6, //eV, 
+//physics stage
+	"GPUBaseMemory":300, // in MB
+	"nSecondPer100keV":5000,
+	"nRadicalsPer100keV":8000, // increase them if encounter memory issues
+
+	"pCSData":"./tables/physics/totalProtonCS3.dat",
+	"eDACSData":"./tables/physics/DACS.txt",
+	"eIonCSData":"./tables/physics/ionizationCS.txt",
+	"eExcCSData":"./tables/physics/excitationCS.txt",
+	"eElaCSData":"./tables/physics/elasticCS.txt",
+	"eElaDCSData":"./tables/physics/elasticDCS.txt",
+
+	"eECutoff": 7.5, //eV
+	"pECutoff": 100,
+	
+	"physicsWorldShape":1, // 0 for sphere with radius= physicsWorldSizeX, 1 for box with ROISizeX=the side length along x axis
+	"physicsWorldSizeX":0.01, // in cm
+	"physicsWorldSizeY":0.01,
+	"physicsWorldSizeZ":0.01,
+	"physicsWorldCenterX":0, // in cm
+	"physicsWorldCenterY":0,
+	"physicsWorldCenterZ":0,
+ //define ROI
+ 	"ROIShape":1, // 0 for sphere with radius=ROISizeX, 1 for box with ROISizeX=the side length along x axis
+	"ROISizeX":5.5,// in um
+	"ROISizeY":5.5,
+	"ROISizeZ":5.5,
+	"ROICenterX":0, // in um
+	"ROICenterY":0,
+	"ROICenterZ":0,
+
+
+	"nPar": 1, // particle number per run
+  "maxRun": 1, // maximal runs. Maximal particle simulated=nPar*nRun
+	"sourceModel": 1, // 0 for PSF file, 1 for random in sphere. 
+	"sourceEnergyModel": 0, // only works if sourceModel!=0. 0 for not using histogram files and uniform inside emin and emax
+	// 1 for using histogram files
+	"sourceFile":"./input/source.txt", // PSF filename if sourceModel=0, histogram file name if (sourceModel!=0 && sourceEnergyModel==1)
+	// The following five parameters only work when sourceModel!=0, i.e., not using PSF files.
+	"sourceSampleDim": 0.0001, // unit cm, radius for sourceModel=1, 
+	// for other distributions, please reload physicsList::iniParticle()
+	"sourcePType": 1,
+	"sourceA": 1, // 1 for proton and 0.0054 for electron 
+	"sourceEmin":20e7, //eV
+	"sourceEmax":20e7,
+	
+	"fileForIntOutput":"./output/phyint.dat",
+	"fileForFloatOutput":"./output/phyfloat.dat",
+	"fileForTotalEvent":"./output/totalphy.dat",
+	"fileForEnergy":"./output/phyEne.txt",
+
+//physicochemcial stage
+	"fileForBranchInfo": "./tables/prechem/branchInfo_prechem_org.txt",
+	"fileForRecombineInfo": "./tables/prechem/thermRecombInfo_prechem.txt",
+	"fileForIntInput": "./output/phyint.dat",
+	"fileForFloatInput": "./output/phyfloat.dat", //default by physics stage
+	"fileForOutput":"./output/prechemRes.dat",
+
+//chemical stage	
+	"fileForSpecInfo":"./tables/chem/RadiolyticSpecies.txt",
+	"fileForReactionInfo":"./tables/chem/Type1_ReactionInfo.txt",
+	"useConstantRadius":0, // reaction radius changes with time step? 1 for no 0 for yes
+	"fileForRadicalInfo":"./output/prechemRes.dat", // if followingprechemical stage, the name should be the same as "fileForOutput" for prechemical stage
+	"chemicalTime":2500, //2500, //unit ps, t_c in the paper
+	"DNAReactTime":10000, //unit ps, t_i in the paper
+
+	"timeFileForNvsTime":"./output/Time.dat",
+	"numberFileForNvsTime":"./output/nRadical.dat",
+	"saveInterval":5, //ps
+	"chemROI": 5500, //nm
+
+	"fileForChemOutput":"./output/chemRes.dat",
+//DNA related
+	"bentChromatin":"./tables/dna/BentChromatinFiberUnitTable.txt", // files for reading DNA structure
+	"bentHistone":"./tables/dna/BentHistonesTable.txt",
+	"straightChromatin":"./tables/dna/StraightChromatinFiberUnitTable.txt",
+	"straightHistone":"./tables/dna/StraightHistonesTable.txt",
+	"wholeDNA":"./tables/dna/WholeNucleoChromosomesTable.bin",
+
+	"fileForChemPos":"./output/chemRes.dat",
+	"fileForOutputDamage":"./output/finalstat.txt",
+	"compareEnergy":8711450, // in eV
+	"repTimes":1,
+
+	"probChem":0.4
+}

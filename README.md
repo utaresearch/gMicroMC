@@ -1,9 +1,9 @@
 # gMicroMC_v2.0
 Updated by Youfang Lai. Email: youfanglai@gmail.com  
-Cross-checked and finalized by Yujie Chi. Email: yujie.chi@uta.edu
+Cross-checked and finalized by Yujie Chi. Email: yujie.chi@uta.edu 
 Correpondance: xun.jia@utsouthwestern.edu and yujie.chi@uta.edu  
 
-Every researcher is welcomed to modify and distribute this package with no commercial purpose. The authors claim no responsibility for the results produced by users.
+Researchers are welcomed to modify and distribute this package for non-commercial purpose. The authors claim no responsibility for the results produced by users.
 For credit recognition, please kindly cite
 * initial development for electron  
 Tsai, M. Y., Tian, Z., Qin, N., Yan, C., Lai, Y., Hung, S. H., ... & Jia, X. (2020). A new open‐source GPU‐based microscopic Monte Carlo simulation tool for the calculations of DNA damages caused by ionizing radiation‐‐‐Part I: Core algorithm and validation. Medical physics, 47(4), 1958-1970.

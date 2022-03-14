@@ -977,10 +977,10 @@ void ChemList::run(DNAList ddl)
 		CUDA_CALL(cudaUnbindTexture(posz_tex));
 		CUDA_CALL(cudaUnbindTexture(ptype_tex));
 		
-		CUDA_CALL(cudaMemset(d_statusPar, 255, sizeof(unsigned char) * iniPar*2)); // use 255 to mark the dead particle
+		CUDA_CALL(cudaMemset(d_statusPar, 255, sizeof(unsigned char) * maxPar)); // use 255 to mark the dead particle
 		CUDA_CALL(cudaMemset(d_statusPar, 0, sizeof(unsigned char) * numCurPar));
 
-		CUDA_CALL(cudaMemset(d_ptype, 255, sizeof(unsigned char) * iniPar*2)); // use 255 to mark the void entry in the new particle array
+		CUDA_CALL(cudaMemset(d_ptype, 255, sizeof(unsigned char) * maxPar)); // use 255 to mark the void entry in the new particle array
 		CUDA_CALL(cudaMemcpy(d_ptype, d_ptype_s, sizeof(unsigned char) * numCurPar, cudaMemcpyDeviceToDevice));
 
 		CUDA_CALL(cudaMemcpy(d_posx, d_posx_s, sizeof(float) * numCurPar, cudaMemcpyDeviceToDevice));
@@ -1142,9 +1142,9 @@ void ChemList::run(DNAList ddl)
 			cudaUnbindTexture(posz_tex);
 			cudaUnbindTexture(ptype_tex);
 
-			cudaMemset(d_statusPar, 255, sizeof(unsigned char) * iniPar)*2;
+			cudaMemset(d_statusPar, 255, sizeof(unsigned char) * maxPar);
 			cudaMemset(d_statusPar, 0, sizeof(unsigned char) * numCurPar);
-			cudaMemset(d_ptype, 255, sizeof(unsigned char) * iniPar*2); // use 255 to mark the void entry in the new particle array					
+			cudaMemset(d_ptype, 255, sizeof(unsigned char) * maxPar); // use 255 to mark the void entry in the new particle array					
 			cudaMemcpy(d_ptype, d_ptype_s, sizeof(unsigned char) * numCurPar, cudaMemcpyDeviceToDevice);
 			
 

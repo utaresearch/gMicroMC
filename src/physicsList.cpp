@@ -367,14 +367,14 @@ void PhysicsList::saveResults()
    	float tmpTotal = 0;
    	int shapeROI = document["ROIShape"].GetInt();
 	float3 centerROI = {0};
-	centerROI.x = document["ROICenterX"].GetFloat();
-	centerROI.y = document["ROICenterY"].GetFloat();
-	centerROI.z = document["ROICenterZ"].GetFloat();
+	centerROI.x = document["ROICenterX"].GetFloat()*1e3;
+	centerROI.y = document["ROICenterY"].GetFloat()*1e3;
+	centerROI.z = document["ROICenterZ"].GetFloat()*1e3;
 
 	float3 sizeROI = {0};
-	sizeROI.x = document["ROISizeX"].GetFloat();
-	sizeROI.y = document["ROISizeY"].GetFloat();
-	sizeROI.z = document["ROISizeZ"].GetFloat();
+	sizeROI.x = document["ROISizeX"].GetFloat()*1e3;
+	sizeROI.y = document["ROISizeY"].GetFloat()*1e3;
+	sizeROI.z = document["ROISizeZ"].GetFloat()*1e3;
 	
    	printf("\n ROI shape and size %d %f %f %f\n", shapeROI, sizeROI.x,sizeROI.y,sizeROI.z);
     for (long long i=0; i<where_all; i++)

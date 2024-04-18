@@ -2,7 +2,6 @@
 
 > We are collecting user feedbacks to further improve this package. Please don't hesitate to contact us via yujie.chi@uta.edu if you have any comments. Much appreciated!
 
-Updated by Youfang Lai with Email: youfanglai@gmail.com  and Yujie Chi with Email: yujie.chi@uta.edu  
 Correpondance: xun.jia@utsouthwestern.edu and yujie.chi@uta.edu  
 
 Researchers are welcomed to modify and distribute this package for non-commercial purpose. The authors claim no responsibility for the results produced by users.

@@ -92,5 +92,5 @@
 	"compareEnergy":8711450, // in eV
 	"repTimes":1,
 
-	"probChem":0.4
+	"probChem":0.1
 }

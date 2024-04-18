@@ -78,7 +78,7 @@ int main()
 	}
 
 	
-	/*if(document["startStage"].GetInt()<4)// || dose>targetDose)
+	if(document["startStage"].GetInt()<4)// || dose>targetDose)
 	{	
 		int repeat = document["repTimes"].GetInt();
 		for(int jjj=0;jjj<repeat;jjj++)
@@ -86,7 +86,7 @@ int main()
 			ddl.run();
 			ddl.saveResults();
 		}
-	}*/
+	}
 	CUDA_CALL(cudaFree(cuseed));
 	return 0;
 }

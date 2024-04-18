@@ -4,18 +4,24 @@ compare_baseindex compare2;
 compare_boxindex compare3;
 DNAList::DNAList()
 {
-	
+	dev_bendChrom=nullptr;
+	dev_bendHistone=nullptr;
+	dev_straightChrom=nullptr;
+	dev_straightHistone=nullptr;
+	dev_chromatinIndex=nullptr;
+	dev_chromatinStart=nullptr;
+	dev_chromatinType=nullptr;
 }
 
 DNAList::~DNAList()
 {
-	cudaFree(dev_bendChrom);
+	/*cudaFree(dev_bendChrom);
 	cudaFree(dev_bendHistone);
 	cudaFree(dev_straightChrom);
 	cudaFree(dev_straightHistone);
 	cudaFree(dev_chromatinIndex);
 	cudaFree(dev_chromatinStart);
-	cudaFree(dev_chromatinType);
+	cudaFree(dev_chromatinType);*/
 }
 
 

@@ -440,18 +440,16 @@ void ChemList::saveResults()
 	float tmpchem = 1-document["probChem"].GetFloat();
 	
 	FILE* fpchem = fopen(fname.c_str(),"ab");
-	printf("x= %f ,y= %f ,z= %f \n", recordposition[1].x,recordposition[1].y,recordposition[1].z);
+	//printf("x= %f ,y= %f ,z= %f \n", recordposition[1].x,recordposition[1].y,recordposition[1].z);
 	for(int ii=0;ii<totalIni;ii++)
 	{
-		//if(recordposition[ii].w>0)
-		//{
-			if (ii<10)
-				printf("x= %f ,y= %f ,z= %f \n", recordposition[ii].x,recordposition[ii].y,recordposition[ii].z);
+		if(recordposition[ii].w>0)
+		{
 			fwrite (&recordposition[ii].x, sizeof(float), 1, fpchem );
 			fwrite (&recordposition[ii].y, sizeof(float), 1, fpchem );
 			fwrite (&recordposition[ii].z, sizeof(float), 1, fpchem );
 			fwrite (&tmpchem, sizeof(float), 1, fpchem );
-		//}
+		}
 	}
 	fclose(fpchem);
 }

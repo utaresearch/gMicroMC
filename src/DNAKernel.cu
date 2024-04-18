@@ -158,7 +158,7 @@ void DNAList::initDNA()
 		}
 	}
 
-	printf("Setting for judging DNA damage");
+	printf("Setting for judging DNA damage\n");
 	float tmpf =-14.5238;
 	CUDA_CALL(cudaMemcpyToSymbol(min1,&tmpf,sizeof(float),0,cudaMemcpyHostToDevice));
 	tmpf =-14.4706;
@@ -588,8 +588,8 @@ void DNAList::run()
 		fscanf(depofp, "%f", &dep_sum);
 		fclose(depofp);
 	}
-	if(dep_sum<threshold)
-		return;
+	//if(dep_sum<threshold)
+	//	return;
 	
 	int totalphy;
 	fname = document["fileForTotalEvent"].GetString();
@@ -604,7 +604,7 @@ void DNAList::run()
 	combinePhysics* d_recorde;
 	CUDA_CALL(cudaMalloc((void**)&d_recorde,sizeof(combinePhysics)*totalphy));
 
-	phySearch<<<NRAND/256,256>>>(totalphy, dev_edrop, dev_chromatinIndex,dev_chromatinStart,dev_chromatinType, dev_straightChrom,
+	phySearch<<<totalphy/256+1,256>>>(totalphy, dev_edrop, dev_chromatinIndex,dev_chromatinStart,dev_chromatinType, dev_straightChrom,
 								dev_bendChrom, dev_straightHistone, dev_bendHistone, d_recorde);
 	cudaDeviceSynchronize();
 	CUDA_CALL(cudaFree(dev_edrop));
@@ -629,7 +629,7 @@ void DNAList::run()
 	combinePhysics* d_recordc;
 	CUDA_CALL(cudaMalloc((void**)&d_recordc,sizeof(combinePhysics)*totalchem));
 
-	chemSearch<<<NRAND/256,256>>>(totalchem, dev_chemdrop, dev_chromatinIndex,dev_chromatinStart,dev_chromatinType, dev_straightChrom,
+	chemSearch<<<totalchem/256+1,256>>>(totalchem, dev_chemdrop, dev_chromatinIndex,dev_chromatinStart,dev_chromatinType, dev_straightChrom,
 								dev_bendChrom, dev_straightHistone, dev_bendHistone, d_recordc);
 	cudaDeviceSynchronize();
 	CUDA_CALL(cudaFree(dev_chemdrop));

@@ -72,7 +72,7 @@
 	"useConstantRadius":0, // reaction radius changes with time step? 1 for no 0 for yes
 	"fileForRadicalInfo":"./output/prechemRes.dat", // if followingprechemical stage, the name should be the same as "fileForOutput" for prechemical stage
 	"chemicalTime":2500, //2500, //unit ps, t_c in the paper
-	"DNAReactTime":10000, //unit ps, t_i in the paper
+	"DNAReactTime":100, //unit ps, t_i in the paper
 
 	"timeFileForNvsTime":"./output/Time.dat",
 	"numberFileForNvsTime":"./output/nRadical.dat",
